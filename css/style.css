@@ -1,0 +1,69 @@
+@font-face{
+    font-family:"SpecialElite";
+    src: url(fonts/SpecialElite-Regular.otf);
+}
+.todosTxt{
+    font-family: "SpecialElite";
+    font-size: .8em;
+}
+.textoClase{
+    top: 38px;
+    left: 220px;
+}
+.textoNombre{
+    top: 51px;
+    left: 90px;
+}
+.textoFechaNa{
+    top: 68px;
+    left: 190px;
+}
+.textoNacio{
+    top: 84px;
+    left: 100px;
+}
+.textoHijoDe{
+    top: 100px;
+    left: 90px;
+}
+.textoYDe{
+    top: 116px;
+    left: 90px;
+}
+.textoEstadoCl{
+    top: 132px;
+    left: 130px;
+}
+.textoGrado{
+    top: 148px;
+    left: 130px;
+}
+.textoLeerEscri{
+    top: 164px;
+    left: 205px;
+}
+.textoCURP{
+    top: 165px;
+    left: 268px;
+    font-size: .9em;
+}
+.textoEstudios{
+    top: 180px;
+    left: 215px;
+}
+.textoDom{
+    top: 196px;
+    left: 105px;
+}
+.textoPresi{
+    top: 332px;
+    left: 37.30px;
+}
+.DirPresi{
+    top: 348px;
+    left: 37.30px;
+}
+.textoFecha{
+    top: 348px;
+    left: 240px;
+}
