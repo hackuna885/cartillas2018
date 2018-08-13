@@ -56,14 +56,27 @@
     left: 105px;
 }
 .textoPresi{
-    top: 332px;
+    top: 325px;
     left: 37.30px;
 }
 .DirPresi{
-    top: 348px;
+    top: 345px;
     left: 37.30px;
 }
 .textoFecha{
-    top: 348px;
+    top: 345px;
     left: 240px;
+}
+.textoMatricula{
+    top: 413px;
+    left: 176px;
+    font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
+    color: firebrick;
+}
+.impre{
+    margin-left: 167.87px;
+    width: 410.34px;
+    text-align: center;
+    position: relative;
 }

@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Cartillas Impresión</title>
+	<link rel="stylesheet" href="css/all.css">
 	<style>
 		*{
 			margin: 0px;
@@ -27,31 +29,71 @@
 		.posTxt{
 			position: absolute;
 		}
+		.btnX1{
+			cursor: pointer;
+			margin: 10px;
+			padding: 15px;
+			border-radius: 5px;
+			border: none;
+			width: 150px;
+			display: inline-block;
+			font-family: Arial, Helvetica, sans-serif;
+		}
+		.btnRed{
+			background-color: #DC3545;
+			color: #fff;
+		}
+		.btnGreen{
+			background-color: #28A745;
+			color: #fff;
+		}
 		
 	</style>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/print.css" media="print">
 </head>
 <body>
+
 	<div class="cuadro">
 	</div>
+<!-- 	<div class="todosTxt">
+			<div class="posTxt textoClase">'.$txtClase.'</div>
+			<div class="posTxt textoNombre">'.$txtNombre.'</div>
+			<div class="posTxt textoFechaNa">'.$txtFechaNa.'</div>
+			<div class="posTxt textoNacio">'.$txtNacio.'</div>
+			<div class="posTxt textoHijoDe">'.$txtHijoUno.'</div>
+			<div class="posTxt textoYDe">'.$txtHijoDos.'</div>
+			<div class="posTxt textoEstadoCl">'.$txtEstadoCv.'</div>
+			<div class="posTxt textoGrado">'.$txtOcupa.'</div>
+			<div class="posTxt textoLeerEscri">'.$txtLeer.'</div>
+			<div class="posTxt textoCURP">'.$txtCurp.'</div>
+			<div class="posTxt textoEstudios">'.$txtGrado.' '.$txtGMaxEst.'</div>
+			<div class="posTxt textoDom">'.$txtDomi.'</div>
+			<div class="posTxt textoPresi">'.$nomPresi.'</div>
+			<div class="posTxt DirPresi">'.$domCartillas.' </div>
+			<div class="posTxt textoFecha">'.$txtFecha.'</div>
+		</div> -->
 	<div class="todosTxt">
-		<div class="posTxt textoClase">2000</div>
-		<div class="posTxt textoNombre">CARLOS EMILIANO BOSSERO PALOS</div>
-		<div class="posTxt textoFechaNa">28 DE MARZO DE 2000</div>
-		<div class="posTxt textoNacio">MEXICO</div>
-		<div class="posTxt textoHijoDe">JUAN CARLOS BOSSERO MALLEN</div>
-		<div class="posTxt textoYDe">ALEJANDRA PALOS PEREZ</div>
-		<div class="posTxt textoEstadoCl">SOLTERO</div>
-		<div class="posTxt textoGrado">ESTUDIANTE</div>
-		<div class="posTxt textoLeerEscri">SI</div>
-		<div class="posTxt textoCURP">BOPC000328HMCSLRA1</div>
-		<div class="posTxt textoEstudios">5° SEM PREPARATORIA</div>
-		<div class="posTxt textoDom">ANTONIO PLAZA 36 FRANCISCO I. MADERO</div>
-		<div class="posTxt textoPresi">LIC. ANGELINA CARREÑO MIJARES</div>
-		<div class="posTxt DirPresi">CD. NICOLAS ROMERO MEX. </div>
-		<div class="posTxt textoFecha">02 DE AGOSTO 2018</div>
+		<div class="posTxt textoClase">1986</div>
+		<div class="posTxt textoNombre">OLIVER RAUL VELÁZQUEZ TORRES</div>
+		<div class="posTxt textoFechaNa"></div>
+		<div class="posTxt textoNacio"></div>
+		<div class="posTxt textoHijoDe"></div>
+		<div class="posTxt textoYDe"></div>
+		<div class="posTxt textoEstadoCl"></div>
+		<div class="posTxt textoGrado"></div>
+		<div class="posTxt textoLeerEscri"></div>
+		<div class="posTxt textoCURP"></div>
+		<div class="posTxt textoEstudios"></div>
+		<div class="posTxt textoDom"></div>
+		<div class="posTxt textoPresi"></div>
+		<div class="posTxt DirPresi"></div>
+		<div class="posTxt textoFecha"></div>
+		<div class="posTxt textoMatricula">5935912</div>
 	</div>
-	
-</body>
-</html>
+	<br>
+	<div class="impre">
+		<div class="btnX1 btnRed"><i class="fas fa-times"></i> Cancelar</div>
+		<div class="btnX1 btnGreen"><i class="fas fa-print"></i> Imprimir</div>
+	</div>
+</div>
