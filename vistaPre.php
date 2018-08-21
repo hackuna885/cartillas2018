@@ -23,7 +23,9 @@ if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
 	while ( $resul = $cs -> fetchArray() ) {
 		$txtClase = $resul['claseCart'];
 		$txtNombre = $resul['nombreCart'];
-		$txtFechaNa = $resul['fechaNaCart'];
+		$txtdiaUnoNa = $resul['diaUnoNaCart'];
+		$txtmesUnoNa = $resul['mesUnoNaCart'];
+		$txtanoUnoNa = $resul['anoUnoNaCart'];
 		$txtNacio = $resul['nacioCart'];
 		$txtHijoUno = $resul['hijoUnoCart'];
 		$txtHijoDos = $resul['hijoDosCart'];
@@ -36,7 +38,9 @@ if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
 		$txtDomi = $resul['domUsrCart'];
 		$nomPresi = $resul['nomPresiCart'];
 		$domCartillas = $resul['domCart'];
-		$txtFecha = $resul['fechaCapCart'];
+		$txtdiaDos = $resul['diaDosCapCart'];
+		$txtmesDos = $resul['mesDosCapCart'];
+		$txtanoDos = $resul['anoDosCapCart'];
 	}
 	
 	$con -> close();
@@ -50,6 +54,7 @@ if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Cartillas Impresión</title>
 	<link rel="stylesheet" href="css/all.css">
+	<link rel="stylesheet" href="css/animate.css">
 	<style>
 			*{
 			margin: 0px;
@@ -92,18 +97,22 @@ if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
 			background-color: #28A745;
 			color: #fff;
 		}
+		.btnBack{
+			background-color: #00A298;
+			color: #fff;
+		}
 	</style>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/print.css" media="print">
 </head>
-<body>
+<body class="animated fadeIn">
 <div class="container">
 	<div class="cuadro">
 	</div>
 	<div class="todosTxt">
 		<div class="posTxt textoClase">'.$txtClase.'</div>
 		<div class="posTxt textoNombre">'.$txtNombre.'</div>
-		<div class="posTxt textoFechaNa">'.$txtFechaNa.'</div>
+		<div class="posTxt textoFechaDeNA">'.$txtdiaUnoNa.' DE '.$txtmesUnoNa.' DE '.$txtanoUnoNa.'</div>
 		<div class="posTxt textoNacio">'.$txtNacio.'</div>
 		<div class="posTxt textoHijoDe">'.$txtHijoUno.'</div>
 		<div class="posTxt textoYDe">'.$txtHijoDos.'</div>
@@ -115,14 +124,16 @@ if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
 		<div class="posTxt textoDom">'.$txtDomi.'</div>
 		<div class="posTxt textoPresi">'.$nomPresi.'</div>
 		<div class="posTxt DirPresi">'.$domCartillas.' </div>
-		<div class="posTxt textoFecha">'.$txtFecha.'</div>
+		<div class="posTxt textoFecha">'.$txtdiaDos.' DE '.$txtmesDos.' DE '.$txtanoDos.'</div>
 		<div class="posTxt textoMatricula ocultar">'.$txtFolio.'</div>
 	</div>
 	
 	<br>
 	<div class="impre">
+		<a href="actualizar.php"><div class="btnX1 btnBack ocultar"><i class="fas fa-undo-alt"></i> Regresar</div></a>
+		<a href="impre.php"><div class="btnX1 btnGreen ocultar animated pulse delay-1s infinite"><i class="fas fa-print"></i> Imprimir</div></a>
+		<br>
 		<a href="cancelar.php"><div class="btnX1 btnRed ocultar"><i class="fas fa-times"></i> Cancelar</div></a>
-		<a href="impre.php"><div class="btnX1 btnGreen ocultar"><i class="fas fa-print"></i> Imprimir</div></a>
 	</div>
 </div>
 </body>

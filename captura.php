@@ -3,14 +3,68 @@
 date_default_timezone_set('America/Mexico_City');
 session_start();
 
-$fecha = date('Y-m-d');
+$dia = date('d');
+$mes = date('m');
+
+switch ($mes) {
+    case "01":
+        $mesTexto = "ENERO";
+        break;
+    case "02":
+        $mesTexto = "FEBRERO";
+        break;
+    case "03":
+        $mesTexto = "MARZO";
+        break;
+    case "04":
+        $mesTexto = "ABRIL";
+        break;
+    case "05":
+        $mesTexto = "MAYO";
+        break;
+    case "06":
+        $mesTexto = "JUNIO";
+        break;
+    case "07":
+        $mesTexto = "JULIO";
+        break;
+    case "08":
+        $mesTexto = "AGOSTO";
+        break;
+    case "09":
+        $mesTexto = "SEPTIEMBRE";
+        break;
+    case "10":
+        $mesTexto = "OCTUBRE";
+        break;
+    case "11":
+        $mesTexto = "NOVIEMBRE";
+        break;
+    case "12":
+        $mesTexto = "DICIEMBRE";
+        break;
+
+}
+
+
+$ano = date('Y');
 
 if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 
 	$folioX = $_POST['txtFolio'];
 	$_SESSION['folio'] = $folioX;
 
-	echo '
+	$con = new SQlite3("datos.db") or die("Problemas para contectar DB!");
+	$busqueda = $con -> query("SELECT COUNT(folioCart) AS Cuantos FROM datosCartillas WHERE folioCart = '$folioX'");
+
+	while ($resultado = $busqueda -> fetchArray()) {
+		$folioR = $resultado['Cuantos'];
+	}
+
+	$con -> close();
+
+	if ($folioR == 0) {
+			echo '
 
 <!DOCTYPE html>
 <html lang="es">
@@ -19,6 +73,7 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Captura</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/animate.css">
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<style>
 		h1,h3{
@@ -51,8 +106,29 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 
 		
 	</style>
+	<script type="text/javascript">
+	function autoAno(str){
+		var xmlhttp;
+		if (str.length == 0) {
+			document.getElementById("txtHint").innetHTML="";
+		}
+		if (window.XMLHttpRequest) {
+			xmlhttp = new XMLHttpRequest();
+		}else{
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange=function(){
+			if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+				document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+			}
+		}
+		xmlhttp.open("GET", "autoAno.php?txtQr="+str,true);
+		xmlhttp.send();
+
+	}
+	</script>
 </head>
-<body>
+<body class="animated fadeIn">
 	<div class="container">
 		<div class="starter-template">
 			<h1>Sistema de Cartillas</h1>
@@ -61,33 +137,57 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 		</div>
 			<form action="insertar.php" method="post">
 				<div class="form-row">
-					<div class="form-group col-md-2">
+					<div class="form-group col-md-1">
 					<label>Clase:</label>
-				<input type="text" class="form-control" name="txtClase" placeholder="Año de nacimiento" maxlength="4" pattern="[0-9]{4}" required autofocus/>
+				<input type="text" class="form-control animated pulse" name="txtClase" placeholder="Año" maxlength="4" pattern="[0-9]{4}" onkeyup="autoAno(this.value)" required autocomplete="off" autofocus/>
 					</div>
-				<div class="form-group col-md-6">
+				<div class="form-group col-md-3">
 				<label>Nombre:</label>
-				<input type="text" class="form-control" name="txtNombre" placeholder="Nombre(s) A Paterno A Materno" required/>
+				<input type="text" class="form-control" name="txtNombre" placeholder="Nombre(s) A Paterno A Materno" maxlength="42" pattern="{42}" autocomplete="off" required/>
+				</div>
+
+				<div class="form-group col-md-1">
+				<label>Fecha NA:</label>
+				<input type="text" class="form-control" name="txtDiaUno" placeholder="Día" required maxlength="2" pattern="[0-9]{2}" autocomplete="off"/>
 				</div>
 				
 				<div class="form-group col-md-2">
-				<label>Fecha de Na:</label>
-				<input type="date" class="form-control" name="txtFechaNa" placeholder="Fecha de nacimiento" required/>
+				<label>&nbsp</label>
+				<select name="txtMesUno" class="form-control" required>
+					<option value="">----</option>
+					<option value="ENERO">ENERO</option>
+					<option value="FEBRERO">FEBRERO</option>
+					<option value="MARZO">MARZO</option>
+					<option value="ABRIL">ABRIL</option>
+					<option value="MAYO">MAYO</option>
+					<option value="JUNIO">JUNIO</option>
+					<option value="JULIO">JULIO</option>
+					<option value="AGOSTO">AGOSTO</option>
+					<option value="SEPTIEMBRE">SEPTIEMBRE</option>
+					<option value="OCTUBRE">OCTUBRE</option>
+					<option value="NOVIEMBRE">NOVIEMBRE</option>
+					<option value="DICIEMBRE">DICIEMBRE</option>
+				</select>
+				</div>
+
+				<div class="form-group col-md-1" id="txtHint">
+				<label>&nbsp</label>
+				<input type="text" class="form-control" name="txtAnoUno" placeholder="Año" maxlength="4" pattern="[0-9]{4}" autocomplete="off" required/>
 				</div>
 				
-				<div class="form-group col-md-2">
+				<div class="form-group col-md-4">
 				<label>Nación en:</label>
-				<input type="text" class="form-control" name="txtNacio" placeholder="Lugar de nacimiento"/>
+				<input type="text" class="form-control" name="txtNacio" placeholder="Lugar de nacimiento" maxlength="36" pattern="{36}" autocomplete="off"/>
 				</div>
 				
 				<div class="form-group col-md-6">
 				<label>Hijo de:</label>
-				<input type="text" class="form-control" name="txtHijoUno" placeholder="Padre"/>
+				<input type="text" class="form-control" name="txtHijoUno" placeholder="Padre" maxlength="42" pattern="{42}" autocomplete="off"/>
 				</div>
 				
 				<div class="form-group col-md-6">
 				<label>Y de:</label>
-				<input type="text" class="form-control" name="txtHijoDos" placeholder="Madre"/>
+				<input type="text" class="form-control" name="txtHijoDos" placeholder="Madre" maxlength="42" pattern="{42}" autocomplete="off"/>
 				</div>
 				<div class="form-group col-md-4">
 				<legend class="col-form-label col-sm-6 pt-0">Esto Civil:</legend>
@@ -104,7 +204,10 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 				</div>
 				<div class="form-group col-md-4">
 				<label>Ocupación:</label>
-				<input type="text" class="form-control" name="txtOcupa" placeholder="Ocupación"/>
+				<select class="form-control" name="txtOcupa" required>
+					<option value="ESTUDIANTE">ESTUDIANTE</option>
+					<option value="EMPLEADO">EMPLEADO</option>
+				</select>
 				</div>
 				<div class="form-group col-md-4">
 				<legend class="col-form-label col-sm-6 pt-0">¿Sabe Leer?</legend>
@@ -121,11 +224,11 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 				</div>
 				<div class="form-group col-md-2">
 				<label>CURP:</label>
-				<input type="text" class="form-control" name="txtCurp" placeholder="CURP 18 dígitos" maxlength="18" pattern="[A-Za-z0-9]{18}" title="Son 18 dígitos" required/>
+				<input type="text" class="form-control" name="txtCurp" placeholder="CURP 18 dígitos" maxlength="18" pattern="[A-Za-z0-9]{18}" title="Son 18 dígitos" autocomplete="off" required/>
 				</div>
-				<div class="form-group col-md-2">
+				<div class="form-group col-md-1">
 				<label>Grado max:</label>
-				<input type="text" class="form-control" name="txtGrado" placeholder="Grado:"/>
+				<input type="text" class="form-control" name="txtGrado" placeholder="Grado:"  maxlength="9" pattern="{9}" autocomplete="off"/>
 				</div>
 				<div class="form-group col-md-2">
 				<label>&nbsp</label>
@@ -138,17 +241,41 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 					<option value="LICENCIATURA">LICENCIATURA</option>
 				</select>
 				</div>
-				<div class="form-group col-md-4">
+				<div class="form-group col-md-3">
 				<label>Domicilio:</label>
-				<input type="text" class="form-control" name="txtDomi" placeholder="Domicilio"/>
+				<input type="text" class="form-control" name="txtDomi" placeholder="Domicilio" maxlength="57" pattern="{57}" autocomplete="off"/>
 				</div>
+				<div class="form-group col-md-1">
+				<label>Fecha:</label>
+				<input type="text" class="form-control" name="txtDiaDos" placeholder="Día" value="'.$dia.'" required maxlength="2" pattern="[0-9]{2}"/>
+				</div>
+				
 				<div class="form-group col-md-2">
-				<label>Fecha de Imp:</label>
-				<input type="date" class="form-control" name="txtFecha" placeholder="Fecha" value="'.$fecha.'" required/>
+				<label>&nbsp</label>
+				<select name="txtMesDos" class="form-control" required>
+					<option value="'.$mesTexto.'">'.$mesTexto.'</option>
+					<option value="ENERO">ENERO</option>
+					<option value="FEBRERO">FEBRERO</option>
+					<option value="MARZO">MARZO</option>
+					<option value="ABRIL">ABRIL</option>
+					<option value="MAYO">MAYO</option>
+					<option value="JUNIO">JUNIO</option>
+					<option value="JULIO">JULIO</option>
+					<option value="AGOSTO">AGOSTO</option>
+					<option value="SEPTIEMBRE">SEPTIEMBRE</option>
+					<option value="OCTUBRE">OCTUBRE</option>
+					<option value="NOVIEMBRE">NOVIEMBRE</option>
+					<option value="DICIEMBRE">DICIEMBRE</option>
+				</select>
+				</div>
+
+				<div class="form-group col-md-1">
+				<label>&nbsp</label>
+				<input type="text" class="form-control" name="txtAnoDos" placeholder="Año" value="'.$ano.'" maxlength="4" pattern="[0-9]{4}" required/>
 				</div>
 				<br>
 				<div class="form-group col-md-6">
-				<input type="submit" class="btn btn-success" value="Continuar"/>
+				<input type="submit" class="btn btn-success animated pulse delay-1s infinite" value="Continuar"/>
 				<input type="reset" class="btn btn-outline-info" value="Lipiar"/>
 				</div>
 			</div>
@@ -160,6 +287,12 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 
 
 	';
+	}else{
+		echo "<script>alert('La matricula D-".$folioX." ya fue Impresa!');</script>";
+		echo "<script>window.location='matricula.php';</script>";
+	}
+
+
 }else{
 	echo "<script>alert('Llena todos los Campos!');</script>";
 	echo "<script>window.location='matricula.php';</script>";

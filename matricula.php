@@ -3,6 +3,9 @@
 error_reporting(E_ALL ^ E_DEPRECATED);
 
 header('Content-Type: text/html; Charset=UTF-8');
+session_start();
+session_destroy();
+
 
 ?>
 
@@ -13,6 +16,7 @@ header('Content-Type: text/html; Charset=UTF-8');
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Matricula</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/animate.css">
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	<style>
 		h1{
@@ -32,7 +36,7 @@ header('Content-Type: text/html; Charset=UTF-8');
 		
 	</style>
 </head>
-<body>
+<body class="animated fadeIn">
 	<div class="container">
 		<div class="cuadroR">
 		<div class="starter-template">
@@ -43,16 +47,16 @@ header('Content-Type: text/html; Charset=UTF-8');
 				<div class="form-row">
 					<div class="form-group col-md-12">
 						<label><h3>Matrícula</h3></label>
-						<div class="input-group input-group-lg">
+						<div class="input-group input-group-lg animated pulse">
 						<div class="input-group-text"><b>D-</b></div>
-						<input type="text" class="form-control" name="txtFolio" placeholder="XXXXXXX" maxlength="7" pattern="[0-9]{7}" required autofocus/>
+						<input type="text" class="form-control" name="txtFolio" placeholder="XXXXXXX" maxlength="7" pattern="[0-9]{7}" autocomplete="off" required autofocus/>
 						</div>
 					</div>
 					<br>
 					<br>
 					<div class="form-group col-md-12">
 						<input type="reset" class="btn btn-danger" value="Cancelar"/>
-						<input type="submit" class="btn btn-success" value="Continuar"/>
+						<input type="submit" class="btn btn-success animated pulse delay-1s infinite" value="Continuar"/>
 					</div>
 				</div>
 			</form>

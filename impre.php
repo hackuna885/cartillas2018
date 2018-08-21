@@ -1,4 +1,4 @@
-<?php 
+﻿<?php 
 
 
 error_reporting(E_ALL ^ E_DEPRECATED);
@@ -23,7 +23,9 @@ if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
 	while ( $resul = $cs -> fetchArray() ) {
 		$txtClase = $resul['claseCart'];
 		$txtNombre = $resul['nombreCart'];
-		$txtFechaNa = $resul['fechaNaCart'];
+		$txtdiaUnoNa = $resul['diaUnoNaCart'];
+		$txtmesUnoNa = $resul['mesUnoNaCart'];
+		$txtanoUnoNa = $resul['anoUnoNaCart'];
 		$txtNacio = $resul['nacioCart'];
 		$txtHijoUno = $resul['hijoUnoCart'];
 		$txtHijoDos = $resul['hijoDosCart'];
@@ -36,7 +38,9 @@ if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
 		$txtDomi = $resul['domUsrCart'];
 		$nomPresi = $resul['nomPresiCart'];
 		$domCartillas = $resul['domCart'];
-		$txtFecha = $resul['fechaCapCart'];
+		$txtdiaDos = $resul['diaDosCapCart'];
+		$txtmesDos = $resul['mesDosCapCart'];
+		$txtanoDos = $resul['anoDosCapCart'];
 	}
 	
 	$con -> close();
@@ -50,6 +54,7 @@ if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Cartillas Impresión</title>
 	<link rel="stylesheet" href="css/all.css">
+	<link rel="stylesheet" href="css/animate.css">
 	<style>
 			*{
 			margin: 0px;
@@ -62,8 +67,8 @@ if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
 			height: 559.55px;
 		}
 		.todosTxt{
-			top: 0px;
-			left: 167.87px;
+			top: -6px;
+			left: -33.87px;
 			position: absolute;
 			width: 410.34px;
 			height: 559.55px;
@@ -82,11 +87,19 @@ if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
 			font-family: Arial, Helvetica, sans-serif;
 		}
 		.btnGrey{
-			background-color: silver;
+			background-color: #5F0095;
 			color: #fff;
 		}
 		.btnGreen{
 			background-color: #28A745;
+			color: #fff;
+		}
+		.btnBack{
+			background-color: #00A298;
+			color: #fff;
+		}
+		.btnRed{
+			background-color: #DC3545;
 			color: #fff;
 		}
 	</style>
@@ -98,26 +111,29 @@ if (isset($_SESSION['folio']) && !empty($_SESSION['folio'])) {
 	<div class="cuadro">
 	</div>
 	<div class="todosTxt">
-		<div class="posTxt textoClase">'.$txtClase.'</div>
-		<div class="posTxt textoNombre">'.$txtNombre.'</div>
-		<div class="posTxt textoFechaNa">'.$txtFechaNa.'</div>
-		<div class="posTxt textoNacio">'.$txtNacio.'</div>
-		<div class="posTxt textoHijoDe">'.$txtHijoUno.'</div>
-		<div class="posTxt textoYDe">'.$txtHijoDos.'</div>
-		<div class="posTxt textoEstadoCl">'.$txtEstadoCv.'</div>
-		<div class="posTxt textoGrado">'.$txtOcupa.'</div>
-		<div class="posTxt textoLeerEscri">'.$txtLeer.'</div>
-		<div class="posTxt textoCURP">'.$txtCurp.'</div>
-		<div class="posTxt textoEstudios">'.$txtGrado.' '.$txtGMaxEst.'</div>
-		<div class="posTxt textoDom">'.$txtDomi.'</div>
-		<div class="posTxt textoPresi">'.$nomPresi.'</div>
-		<div class="posTxt DirPresi">'.$domCartillas.' </div>
-		<div class="posTxt textoFecha">'.$txtFecha.'</div>
+		<div class="posTxt textoClase" contentEditable="true">'.$txtClase.'</div>
+		<div class="posTxt textoNombre" contentEditable="true">'.$txtNombre.'</div>
+		<div class="posTxt textoFechaDeNA" contentEditable="true">'.$txtdiaUnoNa.' DE '.$txtmesUnoNa.' DE '.$txtanoUnoNa.'</div>
+		<div class="posTxt textoNacio" contentEditable="true">'.$txtNacio.'</div>
+		<div class="posTxt textoHijoDe" contentEditable="true">'.$txtHijoUno.'</div>
+		<div class="posTxt textoYDe" contentEditable="true">'.$txtHijoDos.'</div>
+		<div class="posTxt textoEstadoCl" contentEditable="true">'.$txtEstadoCv.'</div>
+		<div class="posTxt textoGrado" contentEditable="true">'.$txtOcupa.'</div>
+		<div class="posTxt textoLeerEscri" contentEditable="true">'.$txtLeer.'</div>
+		<div class="posTxt textoCURP" contentEditable="true">'.$txtCurp.'</div>
+		<div class="posTxt textoEstudios" contentEditable="true">'.$txtGrado.' '.$txtGMaxEst.'</div>
+		<div class="posTxt textoDom" contentEditable="true">'.$txtDomi.'</div>
+		<div class="posTxt textoPresi" contentEditable="true">'.$nomPresi.'</div>
+		<div class="posTxt DirPresi" contentEditable="true">'.$domCartillas.' </div>
+		<div class="posTxt textoFecha" contentEditable="true">'.$txtdiaDos.' DE '.$txtmesDos.' DE '.$txtanoDos.'</div>
+		<div class="posTxt textoMatricula ocultar">'.$txtFolio.'</div>
 	</div>
 	<br>
 	<div class="impre">
 		<a href="impre.php"><div class="btnX1 btnGrey ocultar"><i class="fas fa-print"></i> Re-imprimir</div></a>
-		<a href="matricula.php"><div class="btnX1 btnGreen ocultar"><i class="fas fa-check"></i> Terminar</div></a>
+		<a href="matricula.php"><div class="btnX1 btnGreen ocultar animated pulse delay-2s infinite"><i class="fas fa-check"></i> Terminar</div></a>
+		<a href="actualizar.php"><div class="btnX1 btnBack ocultar"><i class="fas fa-undo-alt"></i> Regresar</div></a>
+		<a href="cancelar.php"><div class="btnX1 btnRed ocultar"><i class="fas fa-times"></i> Cancelar</div></a>
 		
 	</div>
 </div>
