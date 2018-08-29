@@ -228,7 +228,7 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 				</div>
 				<div class="form-group col-md-1">
 				<label>Grado max:</label>
-				<input type="text" class="form-control" name="txtGrado" placeholder="Grado:"  maxlength="9" pattern="{9}" autocomplete="off"/>
+				<input type="text" class="form-control" name="txtGrado" placeholder="Grado:"  maxlength="9" pattern="{9}" autocomplete="off" />
 				</div>
 				<div class="form-group col-md-2">
 				<label>&nbsp</label>
@@ -243,7 +243,7 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 				</div>
 				<div class="form-group col-md-3">
 				<label>Domicilio:</label>
-				<input type="text" class="form-control" name="txtDomi" placeholder="Domicilio" maxlength="57" pattern="{57}" autocomplete="off"/>
+				<input type="text" class="form-control" name="txtDomi" placeholder="Domicilio" maxlength="57" pattern="{57}" autocomplete="off" />
 				</div>
 				<div class="form-group col-md-1">
 				<label>Fecha:</label>
