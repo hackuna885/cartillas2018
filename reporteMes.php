@@ -10,12 +10,14 @@ if (isset($_POST['txtMesRepo']) && !empty($_POST['txtMesRepo']) &&
 	isset($_POST['txtAnoRepo']) && !empty($_POST['txtAnoRepo']) ) {
 	
 	$mesRepo = $_POST['txtMesRepo'];
+	$anoRecap = $_POST['txtAnoRepo'];
 	$anoRepo = $_POST['txtAnoRepo']-18;
 	$_SESSION['mesRepo'] = $mesRepo;
 	$_SESSION['anoRepo'] = $anoRepo;
+	$_SESSION['anoRecap'] = $anoRecap;
 
 	$con = new SQlite3("datos.db") or die("Problemas para contectar DB!");
-	$tablaCartillasMes = $con -> query("SELECT * FROM (SELECT COUNT(gMaxEstCart) AS NADA FROM datosCartillas WHERE gMaxEstCart  = 'NADA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo'),(SELECT COUNT(gMaxEstCart) AS PRIMARIA FROM datosCartillas WHERE gMaxEstCart  = 'PRIMARIA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo'),(SELECT COUNT(gMaxEstCart) AS SECUNDARIA FROM datosCartillas WHERE gMaxEstCart  = 'SECUNDARIA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo'),(SELECT COUNT(gMaxEstCart) AS PREPARATORIA FROM datosCartillas WHERE gMaxEstCart  = 'PREPARATORIA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo'),(SELECT COUNT(gMaxEstCart) AS LICENCIATURA FROM datosCartillas WHERE gMaxEstCart  = 'LICENCIATURA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo')
+	$tablaCartillasMes = $con -> query("SELECT * FROM (SELECT COUNT(gMaxEstCart) AS NADA FROM datosCartillas WHERE gMaxEstCart  = 'NADA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS PRIMARIA FROM datosCartillas WHERE gMaxEstCart  = 'PRIMARIA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS SECUNDARIA FROM datosCartillas WHERE gMaxEstCart  = 'SECUNDARIA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS PREPARATORIA FROM datosCartillas WHERE gMaxEstCart  = 'PREPARATORIA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS LICENCIATURA FROM datosCartillas WHERE gMaxEstCart  = 'LICENCIATURA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap')
 ");
 
 	while ($resultado = $tablaCartillasMes -> fetchArray()) {
@@ -26,7 +28,7 @@ if (isset($_POST['txtMesRepo']) && !empty($_POST['txtMesRepo']) &&
 		$licAnti = $resultado['LICENCIATURA'];
 	}
 
-	$tablaCartillasMes = $con -> query("SELECT * FROM (SELECT COUNT(gMaxEstCart) AS NADA FROM datosCartillas WHERE gMaxEstCart  = 'NADA' AND claseCart = '$anoRepo' AND mesDosCapCart = '$mesRepo'),(SELECT COUNT(gMaxEstCart) AS PRIMARIA FROM datosCartillas WHERE gMaxEstCart  = 'PRIMARIA' AND claseCart = '$anoRepo' AND mesDosCapCart = '$mesRepo'),(SELECT COUNT(gMaxEstCart) AS SECUNDARIA FROM datosCartillas WHERE gMaxEstCart  = 'SECUNDARIA' AND claseCart = '$anoRepo' AND mesDosCapCart = '$mesRepo'),(SELECT COUNT(gMaxEstCart) AS PREPARATORIA FROM datosCartillas WHERE gMaxEstCart  = 'PREPARATORIA' AND claseCart = '$anoRepo' AND mesDosCapCart = '$mesRepo'),(SELECT COUNT(gMaxEstCart) AS LICENCIATURA FROM datosCartillas WHERE gMaxEstCart  = 'LICENCIATURA' AND claseCart = '$anoRepo' AND mesDosCapCart = '$mesRepo')
+	$tablaCartillasMes = $con -> query("SELECT * FROM (SELECT COUNT(gMaxEstCart) AS NADA FROM datosCartillas WHERE gMaxEstCart  = 'NADA' AND claseCart = '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS PRIMARIA FROM datosCartillas WHERE gMaxEstCart  = 'PRIMARIA' AND claseCart = '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS SECUNDARIA FROM datosCartillas WHERE gMaxEstCart  = 'SECUNDARIA' AND claseCart = '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS PREPARATORIA FROM datosCartillas WHERE gMaxEstCart  = 'PREPARATORIA' AND claseCart = '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS LICENCIATURA FROM datosCartillas WHERE gMaxEstCart  = 'LICENCIATURA' AND claseCart = '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap')
 ");
 
 	while ($resultado = $tablaCartillasMes -> fetchArray()) {
@@ -37,7 +39,7 @@ if (isset($_POST['txtMesRepo']) && !empty($_POST['txtMesRepo']) &&
 		$licClase = $resultado['LICENCIATURA'];
 	}
 
-	$tablaCartillasMes = $con -> query("SELECT * FROM (SELECT COUNT(gMaxEstCart) AS NADA FROM datosCartillas WHERE gMaxEstCart  = 'NADA' AND claseCart < '$anoRepo' AND mesDosCapCart = '$mesRepo'),(SELECT COUNT(gMaxEstCart) AS PRIMARIA FROM datosCartillas WHERE gMaxEstCart  = 'PRIMARIA' AND claseCart < '$anoRepo' AND mesDosCapCart = '$mesRepo'),(SELECT COUNT(gMaxEstCart) AS SECUNDARIA FROM datosCartillas WHERE gMaxEstCart  = 'SECUNDARIA' AND claseCart < '$anoRepo' AND mesDosCapCart = '$mesRepo'),(SELECT COUNT(gMaxEstCart) AS PREPARATORIA FROM datosCartillas WHERE gMaxEstCart  = 'PREPARATORIA' AND claseCart < '$anoRepo' AND mesDosCapCart = '$mesRepo'),(SELECT COUNT(gMaxEstCart) AS LICENCIATURA FROM datosCartillas WHERE gMaxEstCart  = 'LICENCIATURA' AND claseCart < '$anoRepo' AND mesDosCapCart = '$mesRepo')
+	$tablaCartillasMes = $con -> query("SELECT * FROM (SELECT COUNT(gMaxEstCart) AS NADA FROM datosCartillas WHERE gMaxEstCart  = 'NADA' AND claseCart < '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS PRIMARIA FROM datosCartillas WHERE gMaxEstCart  = 'PRIMARIA' AND claseCart < '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS SECUNDARIA FROM datosCartillas WHERE gMaxEstCart  = 'SECUNDARIA' AND claseCart < '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS PREPARATORIA FROM datosCartillas WHERE gMaxEstCart  = 'PREPARATORIA' AND claseCart < '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS LICENCIATURA FROM datosCartillas WHERE gMaxEstCart  = 'LICENCIATURA' AND claseCart < '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap')
 ");
 
 	while ($resultado = $tablaCartillasMes -> fetchArray()) {
