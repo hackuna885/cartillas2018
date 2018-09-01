@@ -6,8 +6,6 @@ header('Content-Type: text/html; Charset=UTF-8');
 session_start();
 session_destroy();
 
-$ano = date('Y');
-
 
 ?>
 
@@ -16,7 +14,7 @@ $ano = date('Y');
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Reporte Mensual</title>
+	<title>Reporte Anual</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/animate.css">
 	<script type="text/javascript" src="js/bootstrap.js"></script>
@@ -49,36 +47,36 @@ $ano = date('Y');
 			<p class="lead centrado">Reportes</p>
 		</div>
 
-			<form action="reporteMes.php" method="post" >
+			<form action="listadoAnual.php" method="post" >
 				<div class="form-row">
 					<div class="form-group col-md-12">
-						<label><h3>Reporte Mensual</h3></label>
+						<label><h3>Reporte Anual</h3></label>
 					</div>
-					<div class="form-group col-md-2">
+					<div class="form-group col-md-3">
 					</div>
-					<div class="form-group col-md-4">
-						<label>Selecciona el Mes:</label>
-						<select name="txtMesRepo" class="form-control" required autofocus>
+					<div class="form-group col-md-6">
+						<label>Selecciona el Año:</label>
+						<select name="txtAnoRepoL" class="form-control" required autofocus>
 							<option value="">----</option>
-							<option value="ENERO">ENERO</option>
-							<option value="FEBRERO">FEBRERO</option>
-							<option value="MARZO">MARZO</option>
-							<option value="ABRIL">ABRIL</option>
-							<option value="MAYO">MAYO</option>
-							<option value="JUNIO">JUNIO</option>
-							<option value="JULIO">JULIO</option>
-							<option value="AGOSTO">AGOSTO</option>
-							<option value="SEPTIEMBRE">SEPTIEMBRE</option>
-							<option value="OCTUBRE">OCTUBRE</option>
-							<option value="NOVIEMBRE">NOVIEMBRE</option>
-							<option value="DICIEMBRE">DICIEMBRE</option>
+							
+							<?php 
+
+							$con = new SQlite3("datos.db") or die("Problemas para contectar DB!");
+							$optAno = $con -> query("SELECT anoDosCapCart FROM datosCartillas GROUP BY anoDosCapCart ORDER BY anoDosCapCart");
+
+							while ($resultado = $optAno -> fetchArray()) {
+								$anoOpt = $resultado['anoDosCapCart'];
+
+								echo'<option value="'.$anoOpt.'">'.$anoOpt.'</option>';
+
+							}
+
+
+							 ?>
 						</select>
 					</div>
-					<div class="form-group col-md-4">
-						<label>y el Año:</label>
-						<input type="text" class="form-control" name="txtAnoRepo" placeholder="Año" value="<?php echo $ano; ?>" maxlength="4" pattern="[0-9]{4}" required/>
-					</div>
-					<div class="form-group col-md-2">
+					
+					<div class="form-group col-md-3">
 					</div>
 					<br>
 					<br>

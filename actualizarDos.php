@@ -206,7 +206,7 @@ echo'
 				</div>
 				
 				<div class="form-group col-md-4">
-				<label>Nación en:</label>
+				<label>Nació en:</label>
 				<input type="text" class="form-control" name="txtNacio" placeholder="Lugar de nacimiento" maxlength="36" pattern="{36}" autocomplete="off" value="'.$txtnacioCart.'"/>
 				</div>
 				

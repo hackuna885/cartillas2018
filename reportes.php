@@ -6,6 +6,8 @@ header('Content-Type: text/html; Charset=UTF-8');
 session_start();
 session_destroy();
 
+$ano = date('Y');
+
 
 ?>
 
@@ -14,11 +16,10 @@ session_destroy();
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Matricula</title>
+	<title>Menú Reportes</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/animate.css">
 	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script type="text/javascript" src="js/soloNumeros.js"></script>
 	<style>
 		h1{
 			text-align: center;
@@ -34,6 +35,16 @@ session_destroy();
 			max-width: 600px;
 			text-align: center;
 		}
+		.cuadroCentrado{
+			margin: auto;
+		}
+		.lMayor{
+			font-size: 3em;
+		}
+		.btChido{
+			width: 90px;
+			margin: 3px;
+		}
 		
 	</style>
 </head>
@@ -42,22 +53,27 @@ session_destroy();
 		<div class="cuadroR">
 		<div class="starter-template">
 			<h1>Sistema de Cartillas</h1>
-			<p class="lead centrado">Captura de Datos</p>
+			<p class="lead centrado">Reportes</p>
 		</div>
-			<form action="captura.php" method="post" >
+
+			<form action="" method="GET" >
 				<div class="form-row">
 					<div class="form-group col-md-12">
-						<label><h3>Matrícula</h3></label>
-						<div class="input-group input-group-lg animated pulse">
-						<div class="input-group-text"><b>D-</b></div>
-						<input type="text" class="form-control" name="txtFolio" placeholder="XXXXXXX" maxlength="7" pattern="[0-9]{7}" autocomplete="off" required autofocus onkeypress="return valida(event)"/>
-						</div>
+						<label><h3>Menú Reportes</h3></label>
+					</div>
+					<div class="form-group col-md-12">
+						<label>Selecciona Reporte:</label>
+						<br>
+						<a href="mes.php"><button type="button"class="btn btn-outline-primary btChido"/><span class="lMayor">M</span><br>Mensual</button></a>
+						<a href="ano.php"><button type="button"class="btn btn-outline-primary btChido"/><span class="lMayor">A</span><br>Anual</button></a>
+						<a href="reporteResumen.php"><button type="button"class="btn btn-outline-primary btChido"/><span class="lMayor">R</span><br>Resumen</button></a>
+						<a href="balance.php"><button type="button"class="btn btn-outline-primary btChido"/><span class="lMayor">B</span><br>Balance</button></a>
+						<a href="listado.php"><button type="button"class="btn btn-outline-primary btChido"/><span class="lMayor">L</span><br>Listado</button></a>
 					</div>
 					<br>
 					<br>
 					<div class="form-group col-md-12">
 						<a href="index.php"><button type="button"class="btn btn-outline-info"/>Regresar</button></a>
-						<input type="submit" class="btn btn-success animated pulse delay-1s infinite" value="Continuar"/>
 					</div>
 				</div>
 			</form>

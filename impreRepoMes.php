@@ -11,7 +11,7 @@ if (isset($_SESSION['mesRepo']) && !empty($_SESSION['mesRepo']) &&
 	
 	$mesRepo = $_SESSION['mesRepo'];
 	$anoRecap = $_SESSION['anoRecap'];
-	$anoRepo = $_SESSION['anoRepo']-18;
+	$anoRepo = $_SESSION['anoRepo'];
 
 	$con = new SQlite3("datos.db") or die("Problemas para contectar DB!");
 	$tablaCartillasMes = $con -> query("SELECT * FROM (SELECT COUNT(gMaxEstCart) AS NADA FROM datosCartillas WHERE gMaxEstCart  = 'NADA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS PRIMARIA FROM datosCartillas WHERE gMaxEstCart  = 'PRIMARIA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS SECUNDARIA FROM datosCartillas WHERE gMaxEstCart  = 'SECUNDARIA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS PREPARATORIA FROM datosCartillas WHERE gMaxEstCart  = 'PREPARATORIA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap'),(SELECT COUNT(gMaxEstCart) AS LICENCIATURA FROM datosCartillas WHERE gMaxEstCart  = 'LICENCIATURA' AND claseCart > '$anoRepo' AND mesDosCapCart = '$mesRepo' AND anoDosCapCart = '$anoRecap')

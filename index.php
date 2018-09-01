@@ -38,7 +38,7 @@ session_destroy();
 			</li>
 
 			<li>
-				<a href="mes.php">
+				<a href="reportes.php">
 					<img class="imagen" src="img/reportes.svg" alt="">
 					<span class="text-item">Reportes</span>
 					<span class="down-item"></span>
