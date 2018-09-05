@@ -5,10 +5,12 @@ error_reporting(E_ALL ^ E_DEPRECATED);
 header('Content-Type: text/html; Charset=UTF-8');
 session_start();
 
+include("fechaLetra.php");
 
 if (isset($_SESSION['anoRepoL']) && !empty($_SESSION['anoRepoL'])) {
 
 	$anoRepoL = $_SESSION['anoRepoL'];
+	$claseAnoRepoL = $_SESSION['claseAnoRepoL'];
 	
 	
 
@@ -19,6 +21,7 @@ echo '<!DOCTYPE html>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title>Reporte</title>
 	<link rel="stylesheet" href="css/print.css" media="print">
+	<link rel="stylesheet" href="css/firmaPresi.css" media="screen">
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/all.css">
 	<link rel="stylesheet" href="css/animate.css">
@@ -80,6 +83,21 @@ echo '<!DOCTYPE html>
 				</div>
 
 		</div>
+
+		<div class="firmaPresi">
+		<p class="text-center"><b>
+		LISTADO INICIAL DEL SORTEO
+		<br>
+		JUNTA MUNICIPAL DE RECLUTAMIENTO DE CD. NICOLÁS ROMERO, MÉXICO
+		<br>
+		LISTA QUE SE ELABORA COMO RESULTADO DEL REGISTRO DEL PERSONAL 5.M.N. CLASE “'.$claseAnoRepoL.'”, ANTICIPADOS Y PEMISOS
+		<br>
+		QUE PARTICIPAN EN EL SORTEO DEL PRESENTE AÑO
+		<br>
+		</b></p>
+		</div>
+		<br>
+
 	<div class="table-responsive">
 		<table class="table table-striped table-hover">
 		<thead class="cabeAzul">
@@ -131,7 +149,19 @@ $con -> close();
 					</div>
 					</div>							
 </div>
-
+<br>
+<br>
+	<div class="firmaPresi">
+	<p class="text-center"><b>CD. NICOLÁS ROMERO, MÉXICO A '.$dia.' DE '.$mesTexto.' DE '.$ano.'
+	<br>
+	LA PRESIDENTA MUNICIPAL Y LA JUNTA DE RECLUTAMIENTO</b></p>
+	<br>
+	<br>
+	<p class="text-center"><b>_______________________________________
+	<br>
+	LIC. ANGELINA CARREÑO MIJARES</b>
+	</p>
+	</div>
  </body>
 </html>
 

@@ -20,6 +20,7 @@ $ano = date('Y');
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/animate.css">
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/soloNumeros.js"></script>
 	<style>
 		h1{
 			text-align: center;
@@ -76,7 +77,7 @@ $ano = date('Y');
 					</div>
 					<div class="form-group col-md-4">
 						<label>y el Año:</label>
-						<input type="text" class="form-control" name="txtAnoRepo" placeholder="Año" value="<?php echo $ano; ?>" maxlength="4" pattern="[0-9]{4}" required/>
+						<input type="text" class="form-control" name="txtAnoRepo" placeholder="Año" value="<?php echo $ano; ?>" maxlength="4" pattern="[0-9]{4}" required onkeypress="return valida(event)"/>
 					</div>
 					<div class="form-group col-md-2">
 					</div>

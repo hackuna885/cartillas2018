@@ -31,6 +31,7 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/animate.css">
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/soloNumeros.js"></script>
 	<style>
 		h1,h3{
 			text-align: center;
@@ -95,7 +96,7 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 				<div class="form-row">
 					<div class="form-group col-md-1">
 					<label>Clase:</label>
-				<input type="text" class="form-control animated pulse" name="txtClase" placeholder="Año" maxlength="4" pattern="[0-9]{4}" onkeyup="autoAno(this.value)" required autocomplete="off" autofocus/>
+				<input type="text" class="form-control animated pulse" name="txtClase" placeholder="Año" maxlength="4" pattern="[0-9]{4}" onkeyup="autoAno(this.value)" required autocomplete="off" autofocus onkeypress="return valida(event)"/>
 					</div>
 				<div class="form-group col-md-3">
 				<label>Nombre:</label>
@@ -104,7 +105,7 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 
 				<div class="form-group col-md-1">
 				<label>Fecha NA:</label>
-				<input type="text" class="form-control" name="txtDiaUno" placeholder="Día" required maxlength="2" pattern="[0-9]{2}" autocomplete="off"/>
+				<input type="text" class="form-control" name="txtDiaUno" placeholder="Día" required maxlength="2" pattern="[0-9]{2}" autocomplete="off" onkeypress="return valida(event)"/>
 				</div>
 				
 				<div class="form-group col-md-2">
@@ -128,7 +129,7 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 
 				<div class="form-group col-md-1" id="txtHint">
 				<label>&nbsp</label>
-				<input type="text" class="form-control" name="txtAnoUno" placeholder="Año" maxlength="4" pattern="[0-9]{4}" autocomplete="off" required/>
+				<input type="text" class="form-control" name="txtAnoUno" placeholder="Año" maxlength="4" pattern="[0-9]{4}" autocomplete="off" required onkeypress="return valida(event)"/>
 				</div>
 				
 				<div class="form-group col-md-4">
@@ -203,7 +204,7 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 				</div>
 				<div class="form-group col-md-1">
 				<label>Fecha:</label>
-				<input type="text" class="form-control" name="txtDiaDos" placeholder="Día" value="'.$dia.'" required maxlength="2" pattern="[0-9]{2}"/>
+				<input type="text" class="form-control" name="txtDiaDos" placeholder="Día" value="'.$dia.'" required maxlength="2" pattern="[0-9]{2}" onkeypress="return valida(event)"/>
 				</div>
 				
 				<div class="form-group col-md-2">
@@ -227,7 +228,7 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 
 				<div class="form-group col-md-1">
 				<label>&nbsp</label>
-				<input type="text" class="form-control" name="txtAnoDos" placeholder="Año" value="'.$ano.'" maxlength="4" pattern="[0-9]{4}" required/>
+				<input type="text" class="form-control" name="txtAnoDos" placeholder="Año" value="'.$ano.'" maxlength="4" pattern="[0-9]{4}" required onkeypress="return valida(event)"/>
 				</div>
 				<br>
 				<div class="form-group col-md-6">

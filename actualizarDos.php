@@ -104,6 +104,7 @@ echo'
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/animate.css">
 	<script type="text/javascript" src="js/bootstrap.js"></script>
+	<script type="text/javascript" src="js/soloNumeros.js"></script>
 	<style>
 		h1,h3{
 			text-align: center;
@@ -168,7 +169,7 @@ echo'
 				<div class="form-row">
 					<div class="form-group col-md-1">
 					<label>Clase:</label>
-				<input type="text" class="form-control animated pulse" name="txtClase" placeholder="Año" maxlength="4" pattern="[0-9]{4}" onkeyup="autoAno(this.value)" required autocomplete="off" autofocus value="'.$txtclaseCart.'"/>
+				<input type="text" class="form-control animated pulse" name="txtClase" placeholder="Año" maxlength="4" pattern="[0-9]{4}" onkeyup="autoAno(this.value)" required autocomplete="off" autofocus value="'.$txtclaseCart.'" onkeypress="return valida(event)"/>
 					</div>
 				<div class="form-group col-md-3">
 				<label>Nombre:</label>
@@ -177,7 +178,7 @@ echo'
 
 				<div class="form-group col-md-1">
 				<label>Fecha NA:</label>
-				<input type="text" class="form-control" name="txtDiaUno" placeholder="Día" required maxlength="2" pattern="[0-9]{2}" autocomplete="off" value="'.$txtdiaUnoNaCart.'"/>
+				<input type="text" class="form-control" name="txtDiaUno" placeholder="Día" required maxlength="2" pattern="[0-9]{2}" autocomplete="off" value="'.$txtdiaUnoNaCart.'" onkeypress="return valida(event)"/>
 				</div>
 				
 				<div class="form-group col-md-2">
@@ -202,7 +203,7 @@ echo'
 
 				<div class="form-group col-md-1" id="txtHint">
 				<label>&nbsp</label>
-				<input type="text" class="form-control" name="txtAnoUno" placeholder="Año" maxlength="4" pattern="[0-9]{4}" autocomplete="off" required value="'.$txtanoUnoNaCart.'"/>
+				<input type="text" class="form-control" name="txtAnoUno" placeholder="Año" maxlength="4" pattern="[0-9]{4}" autocomplete="off" required value="'.$txtanoUnoNaCart.'" onkeypress="return valida(event)"/>
 				</div>
 				
 				<div class="form-group col-md-4">
@@ -265,7 +266,7 @@ echo'
 				</div>
 				<div class="form-group col-md-1">
 				<label>Fecha:</label>
-				<input type="text" class="form-control" name="txtDiaDos" placeholder="Día" required maxlength="2" pattern="[0-9]{2}" value="'.$txtdiaDosCapCart.'"/>
+				<input type="text" class="form-control" name="txtDiaDos" placeholder="Día" required maxlength="2" pattern="[0-9]{2}" value="'.$txtdiaDosCapCart.'" onkeypress="return valida(event)"/>
 				</div>
 				
 				<div class="form-group col-md-2">
@@ -290,7 +291,7 @@ echo'
 
 				<div class="form-group col-md-1">
 				<label>&nbsp</label>
-				<input type="text" class="form-control" name="txtAnoDos" placeholder="Año" maxlength="4" pattern="[0-9]{4}" value="'.$txtanoDosCapCart.'" required/>
+				<input type="text" class="form-control" name="txtAnoDos" placeholder="Año" maxlength="4" pattern="[0-9]{4}" value="'.$txtanoDosCapCart.'" required onkeypress="return valida(event)"/>
 				</div>
 				<br>
 				<div class="form-group col-md-6">

@@ -14,7 +14,7 @@ session_destroy();
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title>Reporte Anual</title>
+	<title>Reporte Listado Anual</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/animate.css">
 	<script type="text/javascript" src="js/bootstrap.js"></script>
@@ -50,7 +50,7 @@ session_destroy();
 			<form action="listadoAnual.php" method="post" >
 				<div class="form-row">
 					<div class="form-group col-md-12">
-						<label><h3>Reporte Anual</h3></label>
+						<label><h3>Reporte Listado Anual</h3></label>
 					</div>
 					<div class="form-group col-md-3">
 					</div>
