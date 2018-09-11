@@ -48,26 +48,14 @@ session_destroy();
 			<p class="lead centrado">Reportes</p>
 		</div>
 
-			<form action="reporteBalance.php" method="post" >
+			<form action="reporteBalance_.php" method="post" >
 				<div class="form-row">
 					<div class="form-group col-md-12">
 						<label><h3>Reporte Balance</h3></label>
 					</div>
-					<div class="form-group col-md-4">
-						<label>Inicio de Matricula:</label>
-						<div class="input-group input-group">
-						<div class="input-group-text"><b>D-</b></div>
-						<input type="text" name="txtMatUno" class="form-control" placeholder="XXXXXXX" maxlength="7" pattern="[0-9]{7}" autocomplete="off" required autofocus onkeypress="return valida(event)"/>
-						</div>
+					<div class="form-group col-md-3">
 					</div>
-					<div class="form-group col-md-4">
-						<label>Final de Matricula:</label>
-						<div class="input-group input-group">
-						<div class="input-group-text"><b>D-</b></div>
-						<input type="text" name="txtMatDos" placeholder="XXXXXXX" maxlength="7" pattern="[0-9]{7}" autocomplete="off" class="form-control" required onkeypress="return valida(event)"/>
-						</div>
-					</div>
-					<div class="form-group col-md-4">
+					<div class="form-group col-md-6">
 						<label>Selecciona el Año:</label>
 						<select name="txtAnoRepoB" class="form-control" required onkeypress="return valida(event)"/>
 							<option value="">----</option>
@@ -87,6 +75,8 @@ session_destroy();
 
 							 ?>
 						</select>
+					</div>
+					<div class="form-group col-md-3">
 					</div>
 					
 					

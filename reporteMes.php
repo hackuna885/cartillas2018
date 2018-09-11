@@ -122,6 +122,18 @@ echo '
 	</style>
 </head>
 <body class="animated fadeIn">
+	<div class="firmaPresi">
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	</div>
 	<div class="container">
 		<div class="cuadroR">
 				<div class="starter-template">
@@ -148,49 +160,49 @@ echo '
 						<thead class="cabeAzul">	
 							<tr>
 								<th>CLASE</th>
-								<th>ANALFABETA</th>
-								<th>PRIMARIA</th>
-								<th>SECUNDARIA</th>
-								<th>PREPARATORIA</th>
-								<th>LICENCIATURA</th>
-								<th>SUBTOTAL</th>
+								<th class="centrado">ANALFABETA</th>
+								<th class="centrado">PRIMARIA</th>
+								<th class="centrado">SECUNDARIA</th>
+								<th class="centrado">PREPARATORIA</th>
+								<th class="centrado">LICENCIATURA</th>
+								<th class="centrado">SUBTOTAL</th>
 							</tr>
 						</thead>
 							<tr>
 								<td>ANTICIPADOS</td>
-								<td>'.$nadaAnti.'</td>
-								<td>'.$primAnti.'</td>
-								<td>'.$secuAnti.'</td>
-								<td>'.$prepaAnti.'</td>
-								<td>'.$licAnti.'</td>
-								<td><b>'.$subTotalAnti.'</b></td>
+								<td class="centrado">'.$nadaAnti.'</td>
+								<td class="centrado">'.$primAnti.'</td>
+								<td class="centrado">'.$secuAnti.'</td>
+								<td class="centrado">'.$prepaAnti.'</td>
+								<td class="centrado">'.$licAnti.'</td>
+								<td class="centrado"><b>'.$subTotalAnti.'</b></td>
 							</tr>
 							<tr>
 								<td>CLASE '.$anoRepo.'</td>
-								<td>'.$nadaClase.'</td>
-								<td>'.$primClase.'</td>
-								<td>'.$secuClase.'</td>
-								<td>'.$prepaClase.'</td>
-								<td>'.$licClase.'</td>
-								<td><b>'.$subTotalClase.'</b></td>
+								<td class="centrado">'.$nadaClase.'</td>
+								<td class="centrado">'.$primClase.'</td>
+								<td class="centrado">'.$secuClase.'</td>
+								<td class="centrado">'.$prepaClase.'</td>
+								<td class="centrado">'.$licClase.'</td>
+								<td class="centrado"><b>'.$subTotalClase.'</b></td>
 							</tr>
 							<tr>
 								<td>REMISOS</td>
-								<td>'.$nadaRemi.'</td>
-								<td>'.$primRemi.'</td>
-								<td>'.$secuRemi.'</td>
-								<td>'.$prepaRemi.'</td>
-								<td>'.$licRemi.'</td>
-								<td><b>'.$subTotalRemi.'</b></td>
+								<td class="centrado">'.$nadaRemi.'</td>
+								<td class="centrado">'.$primRemi.'</td>
+								<td class="centrado">'.$secuRemi.'</td>
+								<td class="centrado">'.$prepaRemi.'</td>
+								<td class="centrado">'.$licRemi.'</td>
+								<td class="centrado"><b>'.$subTotalRemi.'</b></td>
 							</tr>
 							<tr>
 								<td><b>TOTAL</b></td>
-								<td><b>'.$t1.'</b></td>
-								<td><b>'.$t2.'</b></td>
-								<td><b>'.$t3.'</b></td>
-								<td><b>'.$t4.'</b></td>
-								<td><b>'.$t5.'</b></td>
-								<td><b>'.$t6.'</b></td>
+								<td class="centrado"><b>'.$t1.'</b></td>
+								<td class="centrado"><b>'.$t2.'</b></td>
+								<td class="centrado"><b>'.$t3.'</b></td>
+								<td class="centrado"><b>'.$t4.'</b></td>
+								<td class="centrado"><b>'.$t5.'</b></td>
+								<td class="centrado"><b>'.$t6.'</b></td>
 							</tr>
 					</table>
 					
@@ -207,7 +219,6 @@ echo '
 <br>
 <br>
 	<div class="firmaPresi">
-	<p class="text-center"><b>CD. NICOLÁS ROMERO, MÉXICO A '.$dia.' DE '.$mesTexto.' DE '.$ano.'</b></p>
 	<table class="centrarCuadro">
 		<tr>
 			<td><b>INUTILIZADAS</b></td>
@@ -219,7 +230,8 @@ echo '
 		</tr>
 	</table>
 	<br>
-	<p class="text-center"><b>
+	<p class="text-center"><b>CD. NICOLÁS ROMERO, MÉXICO A '.$dia.' DE '.$mesTexto.' DE '.$ano.'
+	<br>
 	LA PRESIDENTA MUNICIPAL Y LA JUNTA DE RECLUTAMIENTO</b></p>
 	<br>
 	<br>

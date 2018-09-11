@@ -134,7 +134,7 @@ if (isset($_POST['txtFolio']) && !empty($_POST['txtFolio'])) {
 				
 				<div class="form-group col-md-4">
 				<label>Nació en:</label>
-				<input type="text" class="form-control" name="txtNacio" placeholder="Lugar de nacimiento" maxlength="36" pattern="{36}" autocomplete="off"/>
+				<input type="text" class="form-control" name="txtNacio" placeholder="Lugar de nacimiento" maxlength="39" pattern="{39}" autocomplete="off"/>
 				</div>
 				
 				<div class="form-group col-md-6">

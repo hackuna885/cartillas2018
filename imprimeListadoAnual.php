@@ -67,6 +67,9 @@ echo '<!DOCTYPE html>
 		.centrarCuadro{
 			margin: auto;
 		}
+		table{
+			font-size: .8em;
+		}
 	</style>
 </head>
 <body class="animated fadeIn" onload="window.print();">
@@ -90,7 +93,7 @@ echo '<!DOCTYPE html>
 		<br>
 		JUNTA MUNICIPAL DE RECLUTAMIENTO DE CD. NICOLÁS ROMERO, MÉXICO
 		<br>
-		LISTA QUE SE ELABORA COMO RESULTADO DEL REGISTRO DEL PERSONAL 5.M.N. CLASE “'.$claseAnoRepoL.'”, ANTICIPADOS Y PEMISOS
+		LISTA QUE SE ELABORA COMO RESULTADO DEL REGISTRO DEL PERSONAL 5.M.N. CLASE “'.$claseAnoRepoL.'”, ANTICIPADOS Y REMISOS
 		<br>
 		QUE PARTICIPAN EN EL SORTEO DEL PRESENTE AÑO
 		<br>
@@ -99,7 +102,7 @@ echo '<!DOCTYPE html>
 		<br>
 
 	<div class="table-responsive">
-		<table class="table table-striped table-hover">
+		<table class="table table-striped table-sm table-hover">
 		<thead class="cabeAzul">
 		<tr>
 			<th>NO.</th>

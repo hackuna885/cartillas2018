@@ -106,11 +106,11 @@ echo '
 		<thead class="cabeAzul">
 	 		<tr>
 	 			<th>JJ.MM.RR</th>
-	 			<th>ALISTADOS</th>
-	 			<th>DE LA CLASE</th>
-	 			<th>ANTICIPADOS</th>
-	 			<th>REMISOS</th>
-	 			<th>INUTILIZADOS</th>
+	 			<th class="centrado">ALISTADOS</th>
+	 			<th class="centrado">DE LA CLASE</th>
+	 			<th class="centrado">ANTICIPADOS</th>
+	 			<th class="centrado">REMISOS</th>
+	 			<th class="centrado">INUTILIZADOS</th>
 	 		</tr>
 	 	</thead>
 ';
@@ -169,11 +169,11 @@ $con = new SQlite3("datos.db") or die("Problemas para contectar DB!");
 		echo '
 			<tr>
 	 			<td>'.$varMes.'</td>
-	 			<td>'.$alistados.'</td>
-	 			<td>'.$clase.'</td>
-	 			<td>'.$anticipados.'</td>
-	 			<td>'.$remisos.'</td>
-	 			<td>0</td> 			
+	 			<td class="centrado">'.$alistados.'</td>
+	 			<td class="centrado">'.$clase.'</td>
+	 			<td class="centrado">'.$anticipados.'</td>
+	 			<td class="centrado">'.$remisos.'</td>
+	 			<td class="centrado">0</td> 			
 	 		</tr>
 
 
@@ -195,11 +195,11 @@ $tablaCartillasAno = $con -> query("SELECT * FROM (SELECT COUNT(claseCart) AS CL
 echo '
 			<tr>
 	 			<th>TOTAL</th>
-	 			<th>'.$alistadosT.'</th>
-	 			<th>'.$claseT.'</th>
-	 			<th>'.$anticipadosT.'</th>
-	 			<th>'.$remisosT.'</th>
-	 			<th>0</th>
+	 			<th class="centrado">'.$alistadosT.'</th>
+	 			<th class="centrado">'.$claseT.'</th>
+	 			<th class="centrado">'.$anticipadosT.'</th>
+	 			<th class="centrado">'.$remisosT.'</th>
+	 			<th class="centrado">0</th>
 	 		</tr>
  	</table>
 
